@@ -1,0 +1,17 @@
+{
+  "name": "genius-pcs-lms",
+  "version": "1.0.0",
+  "description": "school management system for genius pre cadet school",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "genius",
+    "pre",
+    "cadet",
+    "school"
+  ],
+  "author": "mkh mithu",
+  "license": "ISC"
+}
