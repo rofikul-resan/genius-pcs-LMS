@@ -15,7 +15,8 @@ const studentSchema = new Schema<IStudent>({
         },
         classNo: {
             type: Number,
-            required: true
+            required: true,
+            enum: ["play",1,2,3,4,5]
         },
         session: {
             type: Number,

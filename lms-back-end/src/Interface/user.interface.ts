@@ -1,5 +1,6 @@
 import { Document, Types } from "mongoose";
 import { IAddress } from "../model/user.model";
+import { IClassRoutine } from "./classrRoutine.interface";
 
 export interface IUser extends Document {
     image: string;
@@ -39,7 +40,7 @@ export interface IResultEntry {
 
 export interface IClassInfo {
     roll: number;
-    classNo: number;
+    classNo:"play"| 1|2|3|4|5;
     session: number;
     group: 'A' | 'B';
     shift: 'Morning' | 'Evening';
@@ -54,10 +55,9 @@ export interface IStudent extends Document {
 
 export interface IStaff extends Document {
     userInfo: Types.ObjectId | IUser; 
-    roll: "Admin" | "Staff";
+    role: "Admin" | "Staff";
+    education: string;
     classTime: IClassRoutine[]
 }
 
-interface IClassRoutine {
-     class : string
- }
+
