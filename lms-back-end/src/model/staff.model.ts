@@ -1,10 +1,11 @@
 import mongoose, { Schema } from "mongoose";
 import { IStaff } from "../Interface/user.interface";
+import { modelName } from "../utils/constent";
 
 const StaffSchema = new Schema<IStaff>({
     userInfo: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: modelName.user,
         required: true,
     },
     role : {
@@ -20,12 +21,12 @@ const StaffSchema = new Schema<IStaff>({
     classTime: [
         {
             type: Schema.Types.ObjectId,
-            ref: "ClassRoutine",
+            ref:modelName.classRoutine,
         },
     ]
 
 
 }, { timestamps: true })
 
-const    Staff = mongoose.model<IStaff>("Staff", StaffSchema) 
+const    Staff = mongoose.model<IStaff>(modelName.staff, StaffSchema) 
 export default Staff

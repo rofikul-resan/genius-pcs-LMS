@@ -1,5 +1,6 @@
 import { Schema, model, Document } from "mongoose"
 import { IUser } from "../Interface/user.interface"
+import { modelName } from "../utils/constent"
 
 export interface IAddress {
     village: string,
@@ -101,6 +102,6 @@ const userSchema = new Schema<IUser>({
 }, { timestamps: true })
 
 
-const User = model<IUser>("User", userSchema)
+const User = model<IUser>(modelName.user, userSchema)
 
 export default User

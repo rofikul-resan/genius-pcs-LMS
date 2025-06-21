@@ -1,11 +1,12 @@
 import { model, Schema } from "mongoose";
 import { IStudent } from "../Interface/user.interface";
+import { modelName } from "../utils/constent";
 
 
 const studentSchema = new Schema<IStudent>({
     userInfo: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: modelName.user,
         required: true,
     },
     classInfo: {
@@ -47,7 +48,7 @@ const studentSchema = new Schema<IStudent>({
             },
             result: {
                 type: Schema.Types.ObjectId,
-                ref: "Result",
+                ref: modelName.result,
                 default: null
             }
         }
@@ -55,6 +56,6 @@ const studentSchema = new Schema<IStudent>({
 
 },{ timestamps: true });
 
-const Student = model<IStudent>("Student", studentSchema);
+const Student = model<IStudent>(modelName.student, studentSchema);
 
 export default Student;

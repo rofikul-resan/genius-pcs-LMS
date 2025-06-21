@@ -1,11 +1,13 @@
 import { Schema, model } from "mongoose";
 import { IClassRoutine } from "../Interface/classrRoutine.interface";
+import { modelName } from "../utils/constent";
 
 const ClassRoutineSchema = new Schema<IClassRoutine>({
     teacher: {
         teacherID: {
             type : Schema.Types.ObjectId,
-            ref : "Staff"
+            ref : modelName.staff,
+            required : true
         },
         name : {
             type : String,
@@ -40,13 +42,13 @@ const ClassRoutineSchema = new Schema<IClassRoutine>({
     studentList: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Student",
+        ref: modelName.student,
         required: true
       }
     ]
   
 }, { timestamps: true })
 
-const ClassRoutine = model<IClassRoutine>("ClassRoutine", ClassRoutineSchema)
+const ClassRoutine = model<IClassRoutine>(modelName.classRoutine, ClassRoutineSchema)
 
 export default ClassRoutine;
