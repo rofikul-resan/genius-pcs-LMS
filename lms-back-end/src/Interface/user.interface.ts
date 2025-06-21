@@ -51,3 +51,13 @@ export interface IStudent extends Document {
     result: IResultEntry[];
 }
 
+
+export interface IStaff extends Document {
+    userInfo: Types.ObjectId | IUser; 
+    roll: "Admin" | "Staff";
+    classTime: IClassRoutine[]
+}
+
+interface IClassRoutine {
+     class : string
+ }

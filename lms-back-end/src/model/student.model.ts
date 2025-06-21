@@ -6,7 +6,7 @@ const studentSchema = new Schema<IStudent>({
     userInfo: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        required: true
+        required: true,
     },
     classInfo: {
         roll: {
@@ -40,7 +40,7 @@ const studentSchema = new Schema<IStudent>({
                 type: Number,
                 required: true
             },
-            classNO: {
+            classNo: {
                 type: Number,
                 required: true
             },
