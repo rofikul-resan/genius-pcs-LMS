@@ -1,54 +1,59 @@
-import { model, Schema, } from "mongoose";
+import { model, Schema } from "mongoose";
+import { IStudent } from "../Interface/user.interface";
 
 
-const Student = new Schema({
+const studentSchema = new Schema<IStudent>({
     userInfo: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        require: true
+        required: true
     },
     classInfo: {
         roll: {
             type: Number,
-            require: true
+            required: true
         },
         classNo: {
             type: Number,
-            require: true
+            required: true
         },
-        Session: {
+        session: {
             type: Number,
-            require: true
+            required: true
         },
-        Groupe: {
+        group: {
             type: String,
             enum: ["A", "B"],
             default: "A",
-            require: true
+            required: true
         },
         shift: {
             type: String,
             enum: ["Morning", "Evening"],
             default: "Morning",
-            require: true
+            required: true
         }
     },
     result: [
         {
             year: {
                 type: Number,
-                require: true
+                required: true
             },
-            semester: {
+            classNO: {
                 type: Number,
-                require: true
+                required: true
             },
             result: {
-                type : Schema.Types.ObjectId || null,
+                type: Schema.Types.ObjectId,
                 ref: "Result",
                 default: null
             }
         }
     ]
 
-}, { timestamps: true })
+},{ timestamps: true });
+
+const Student = model<IStudent>("Student", studentSchema);
+
+export default Student;

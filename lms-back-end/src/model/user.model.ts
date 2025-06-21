@@ -1,15 +1,28 @@
-import { Schema, model } from "mongoose"
+import { Schema, model, Document } from "mongoose"
+import { IUser } from "../Interface/user.interface"
 
-const addressSchema = new Schema({
+export interface IAddress {
+    village: string,
+    district: string,
+    upazila: string,
+    postOffice: string,
+    zipCode: string,
+    country: string,
+    division: string
+}
+
+
+
+const addressSchema = new Schema<IAddress>({
     village: String,
     district: String,
-    upaZila: String,
-    postOffice : String,
-    zipCode : String,
+    upazila: String,
+    postOffice: String,
+    zipCode: String,
     country: String,
     division: String
 })
-const userSchema = new Schema({
+const userSchema = new Schema<IUser>({
     image : {
         type: String,
         required: true
@@ -20,7 +33,7 @@ const userSchema = new Schema({
             index: true,
             required: true,
         },
-        bangle: {
+        bangla: {
             type: String,
             index: true,
             required: true
@@ -51,12 +64,12 @@ const userSchema = new Schema({
                 type: Number,
                 
             },
-            nidNUmber: {
+            nidNumber: {
                 type: Number,
                 required: true
             }
         },
-        motherName :  {
+        motherInfo:  {
             name: {
                 type: String,
                 required: true
@@ -65,16 +78,16 @@ const userSchema = new Schema({
                 type: Number,
                 
             },
-            nidNUmber: {
+            nidNumber: {
                 type: Number,
                 required: true
             }
         },
-        bathDate: {
+        birthDate: {
             type: Date,
             required: true
         },
-        BathID: {
+        birthId: {
             type: String,
             required: true
         },
@@ -89,6 +102,6 @@ const userSchema = new Schema({
 }, { timestamps: true })
 
 
-const User = model("User", userSchema)
+const User = model<IUser>("User", userSchema)
 
 export default User
