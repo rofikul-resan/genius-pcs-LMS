@@ -27,8 +27,10 @@ export interface IUser extends Document {
         nationality: string;
         presentAddress: IAddress;
         permanentAddress: IAddress;
-        hashPassword: (password: string) => Promise<string>;
+        
     };
+    hashPassword?(password: string) : Promise<string>;
+    comparePassword?(password: string) : Promise<boolean>;
 }
 
 
@@ -57,6 +59,7 @@ export interface IStudent extends Document {
 export interface IStaff extends Document {
     userInfo: Types.ObjectId | IUser; 
     role: "Admin" | "Staff";
+    position : string;
     education: string;
     classTime: IClassRoutine[]
 }

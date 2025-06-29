@@ -10,6 +10,6 @@ export const modelName = {
     staff : "Staff",
     classRoutine : "ClassRoutine",
     result : "Result",
-    attendance : "Attendance"
+    attendance : "Attendance",
+    notice: "Notice"
 }
-

@@ -14,6 +14,10 @@ const StaffSchema = new Schema<IStaff>({
         enum: ["Admin", "Staff"],
         default : "Staff"
     },
+    position : {
+        type: String,
+        required: true
+    },
     education : {
         type: String,
         required: true

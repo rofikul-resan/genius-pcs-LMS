@@ -1,4 +1,5 @@
-import { Schema, model, Document } from "mongoose"
+import mongoose from "mongoose"
+import { Schema, model} from "mongoose"
 import { IUser } from "../Interface/user.interface"
 import { modelName } from "../utils/constant"
 import bcrypt from "bcrypt"
@@ -104,8 +105,24 @@ const userSchema = new Schema<IUser>({
 }, { timestamps: true })
 
 
-userSchema.methods.hashPassword = async function (password: string) { 
-    return await bcrypt.hash(password, 10)
+
+
+userSchema.pre<IUser>("save", async function (next) {
+    if (!this.isModified("password")) {
+        return next();
+    }
+    try {
+        if (this.password) {
+            this.password = await bcrypt.hash(this.password, 10);
+        }
+        next();
+    } catch (err) {
+        next(err as Error);
+    }
+});
+
+userSchema.methods.comparePassword= async function(password : string){
+    return await bcrypt.compare(password, this.password)
 }
 
 const User = model<IUser>(modelName.user, userSchema)
