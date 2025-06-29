@@ -1,4 +1,4 @@
-class ApiResponse {
+export  class ApiResponse {
     statusCode: number;
     data: any;
     message: string;
@@ -8,7 +8,7 @@ class ApiResponse {
         this.statusCode = statusCode;
         this.data = data;
         this.message = message;
-        this.success = statusCode < 400;
+        this.success = statusCode >= 200 && statusCode < 300 ? true : false;
     }
 
 }
