@@ -18,11 +18,15 @@ const ClassRoutineSchema = new Schema<IClassRoutine>({
     },
     subject: {
       type: String,
-      required: true
+      enum : ["ইংরেজি","গণিত","টিফিন","বাংলা","সমাজ/ভূগোল","আরবি","শিল্প","সাধারণ জ্ঞান","কৃষি শিক্ষা","ধর্ম","বিজ্ঞান"],
+      required: true, 
+      default : "সমাবেশ"
     },
     classTime: {
       type: String,
-      required: true
+      enum: ["8.00 am - 8.15 am" , "8.15am - 9.00 am" , "9.00 am - 10.00 am" , "10.00 am - 10.20 am" , "10.20 am - 11.00 am" , "11.00 am - 11.40 am" , "11.40 am - 12.20 pm" , "12.20 pm - 1.00 pm"],
+      required: true,
+      default: "8.00 am - 8.15 am"
     },
     classNo: {
       type: Schema.Types.Mixed,

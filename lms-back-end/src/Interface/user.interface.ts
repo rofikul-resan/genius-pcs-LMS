@@ -27,6 +27,7 @@ export interface IUser extends Document {
         nationality: string;
         presentAddress: IAddress;
         permanentAddress: IAddress;
+        hashPassword: (password: string) => Promise<string>;
     };
 }
 

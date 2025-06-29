@@ -1,6 +1,8 @@
 import { Schema, model, Document } from "mongoose"
 import { IUser } from "../Interface/user.interface"
 import { modelName } from "../utils/constent"
+import bcrypt from "bcrypt"
+
 
 export interface IAddress {
     village: string,
@@ -101,6 +103,10 @@ const userSchema = new Schema<IUser>({
 
 }, { timestamps: true })
 
+
+userSchema.methods.hashPassword = async function (password: string) { 
+    return await bcrypt.hash(password, 10)
+}
 
 const User = model<IUser>(modelName.user, userSchema)
 
