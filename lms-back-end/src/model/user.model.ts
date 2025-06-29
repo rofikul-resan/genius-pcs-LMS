@@ -1,6 +1,6 @@
 import { Schema, model, Document } from "mongoose"
 import { IUser } from "../Interface/user.interface"
-import { modelName } from "../utils/constent"
+import { modelName } from "../utils/constant"
 import bcrypt from "bcrypt"
 
 

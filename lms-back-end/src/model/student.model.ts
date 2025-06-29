@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 import { IStudent } from "../Interface/user.interface";
-import { modelName } from "../utils/constent";
+import { modelName } from "../utils/constant";
 
 
 const studentSchema = new Schema<IStudent>({

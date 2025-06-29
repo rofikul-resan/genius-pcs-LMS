@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { IStaff } from "../Interface/user.interface";
-import { modelName } from "../utils/constent";
+import { modelName } from "../utils/constant";
 
 const StaffSchema = new Schema<IStaff>({
     userInfo: {

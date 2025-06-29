@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { IAttendance } from "../Interface/attendance.interface";
-import { modelName } from "../utils/constent";
+import { modelName } from "../utils/constant";
 
 
 

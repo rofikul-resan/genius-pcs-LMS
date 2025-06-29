@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import { IClassRoutine } from "../Interface/classrRoutine.interface";
-import { modelName } from "../utils/constent";
+import { modelName } from "../utils/constant";
 
 const ClassRoutineSchema = new Schema<IClassRoutine>({
     teacher: {
@@ -18,7 +18,7 @@ const ClassRoutineSchema = new Schema<IClassRoutine>({
     },
     subject: {
       type: String,
-      enum : ["ইংরেজি","গণিত","টিফিন","বাংলা","সমাজ/ভূগোল","আরবি","শিল্প","সাধারণ জ্ঞান","কৃষি শিক্ষা","ধর্ম","বিজ্ঞান"],
+      enum: ["ইংরেজি", "গণিত", "টিফিন", "বাংলা", "আরবি", "সাধারণ জ্ঞান", "ধর্ম", "বিজ্ঞান", "সমাবেশ","ড্রইং"],
       required: true, 
       default : "সমাবেশ"
     },

@@ -6,6 +6,7 @@ dotenv.config();
 const port = process.env.PORT || 3000
 
 
+
 try {
     connectDB().then(() => {
                 app.listen(port, (err) => {
@@ -15,5 +16,5 @@ try {
     
 })
 } catch (error) {
-    console.log(error)
+    console.log("database connection error")
 }
