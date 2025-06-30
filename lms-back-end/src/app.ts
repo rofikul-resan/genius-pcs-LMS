@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import userRoute from "./routes/user.routes";
 
 
 
@@ -9,6 +10,10 @@ app.use(express.json());
 app.use(cors({ credentials: true }));
 app.use(cookieParser());
 
+
+// route
+
+app.use("/api/user", userRoute)
 
 
 app.get("/", (_, res) => {

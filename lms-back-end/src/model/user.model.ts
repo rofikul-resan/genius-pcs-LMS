@@ -36,15 +36,21 @@ const userSchema = new Schema<IUser>({
             type: String,
             index: true,
             required: true,
+            trim: true,
+
         },
         bangla: {
             type: String,
             index: true,
-            required: true
+            required: true,
+            trim: true,
         }
     },
      email : {
-            type: String,
+         type: String,
+         trim: true,
+         unique: true
+
         },
     phoneNumber : {
             type: String,
@@ -61,7 +67,8 @@ const userSchema = new Schema<IUser>({
         fatherInfo : {
             name: {
                 type: String,
-                required: true
+                required: true,
+                trim: true
             },
             phoneNumber: {
                 type: Number,
@@ -75,7 +82,8 @@ const userSchema = new Schema<IUser>({
         motherInfo:  {
             name: {
                 type: String,
-                required: true
+                required: true,
+                trim: true
             },
             phoneNumber: {
                 type: Number,
@@ -96,7 +104,13 @@ const userSchema = new Schema<IUser>({
         },
         nationality: {
             type: String,
-            required: true
+            required: true,
+            trim: true
+        },
+        religion: {
+            type: String,
+            required: true,
+            trim: true
         },
         presentAddress: addressSchema,
         permanentAddress: addressSchema
