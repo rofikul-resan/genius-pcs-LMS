@@ -1,4 +1,3 @@
-import mongoose from "mongoose"
 import { Schema, model} from "mongoose"
 import { IUser } from "../Interface/user.interface"
 import { modelName } from "../utils/constant"
@@ -26,7 +25,7 @@ const addressSchema = new Schema<IAddress>({
     country: String,
     division: String
 })
-const userSchema = new Schema<IUser>({
+export const userSchema = new Schema<IUser>({
     image : {
         type: String,
         required: true

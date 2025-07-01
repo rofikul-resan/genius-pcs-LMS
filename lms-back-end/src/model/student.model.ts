@@ -1,14 +1,11 @@
 import { model, Schema } from "mongoose";
 import { IStudent } from "../Interface/user.interface";
 import { modelName } from "../utils/constant";
+import { userSchema } from "./user.model";
 
 
 const studentSchema = new Schema<IStudent>({
-    userInfo: {
-        type: Schema.Types.ObjectId,
-        ref: modelName.user,
-        required: true,
-    },
+    userInfo: userSchema,
     classInfo: {
         roll: {
             type: Number,
@@ -17,7 +14,7 @@ const studentSchema = new Schema<IStudent>({
         classNo: {
             type: Number,
             required: true,
-            enum: ["play",1,2,3,4,5]
+            enum: ["play","baby",1,2,3,4,5]
         },
         session: {
             type: Number,
@@ -36,23 +33,6 @@ const studentSchema = new Schema<IStudent>({
             required: true
         }
     },
-    result: [
-        {
-            year: {
-                type: Number,
-                required: true
-            },
-            classNo: {
-                type: Number,
-                required: true
-            },
-            result: {
-                type: Schema.Types.ObjectId,
-                ref: modelName.result,
-                default: null
-            }
-        }
-    ]
 
 },{ timestamps: true });
 

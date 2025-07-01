@@ -1,13 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 import { IStaff } from "../Interface/user.interface";
 import { modelName } from "../utils/constant";
+import { userSchema } from "./user.model";
 
 const StaffSchema = new Schema<IStaff>({
-    userInfo: {
-        type: Schema.Types.ObjectId,
-        ref: modelName.user,
-        required: true,
-    },
+    userInfo: userSchema,
     role : {
         type: String,
         required: true,

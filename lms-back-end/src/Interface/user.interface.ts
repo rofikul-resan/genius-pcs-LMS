@@ -1,4 +1,4 @@
-import { Document, Types } from "mongoose";
+import { Document } from "mongoose";
 import { IAddress } from "../model/user.model";
 import { IClassRoutine } from "./classrRoutine.interface";
 
@@ -35,29 +35,24 @@ export interface IUser extends Document {
 
 
 
-export interface IResultEntry {
-    year: number;
-    classNO: number;
-    result?: Types.ObjectId | null; 
-}
+
 
 export interface IClassInfo {
     roll: number;
-    classNo:"play"| 1|2|3|4|5;
+    classNo:"play" | "baby"| 1|2|3|4|5;
     session: number;
     group: 'A' | 'B';
     shift: 'Morning' | 'Evening';
 }
 
 export interface IStudent extends Document {
-    userInfo: Types.ObjectId | IUser; 
+    userInfo: IUser;
     classInfo: IClassInfo;
-    result: IResultEntry[];
 }
 
 
 export interface IStaff extends Document {
-    userInfo: Types.ObjectId | IUser; 
+    userInfo: IUser;
     role: "Admin" | "Staff";
     position : string;
     education: string;

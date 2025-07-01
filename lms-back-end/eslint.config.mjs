@@ -1,28 +1,27 @@
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
-import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginPrettier from "eslint-plugin-prettier";
+import js from '@eslint/js';
+import globals from 'globals';
+import * as tseslint from '@typescript-eslint/eslint-plugin';
+import { configs as tseslintConfigs } from '@typescript-eslint/eslint-plugin';
+import { defineConfig } from 'eslint/config';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginPrettier from 'eslint-plugin-prettier';
 
 export default defineConfig([
     {
-        files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+        plugins: { js, prettier: eslintPluginPrettier },
         plugins: { js, eslintPluginPrettier },
-        extends: ["js/recommended"],
+        extends: ['plugin:@eslint/js/recommended'],
     },
     {
-        files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+        files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
         languageOptions: { globals: { ...globals.browser, ...globals.node } },
         rules: {
-            "prettier/prettier": "error",
-            eqeqeq: "off",
-            "no-unused-vars": "error",
-            "prefer-const": ["error", { ignoreReadBeforeAssign: true }],
-            "prettier/prettier": "error",
+            'prettier/prettier': 'error',
+            eqeqeq: 'off',
+            'no-unused-vars': 'error',
+            'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
         },
     },
-    tseslint.configs.recommended,
+    tseslintRecommended,
     eslintConfigPrettier,
-    { languageOptions: { globals: globals.browser } },
 ]);
